@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %} My weather {% endblock %}
+{% block content %}
+<br>
+	<div class="container" id = "title" style="text-align: center;font-family: monospace; height: 100%">
+
+		<form action = "{{url_for("search")}}" method="post" class="input-group mb-3">
+			<input type="text" class="form-control" placeholder="City name" aria-label="City name" aria-describedby="basic-addon2" name="city" autocomplete="off">
+  			<div class="input-group-append">
+    			<button class="btn btn-outline-primary" type="submit" ondblclick="submit()">🔍</button>
+  			</div>
+  			<script type="text/javascript" charset="utf-8" async defer>
+  				function submit() {
+  					var frm = document.getElementsByName('city');
+  					frm.reset();
+  					return false;
+  				}
+  			</script>
+		</form>
+
+		<br>
+		<br>
+		<br>
+		<center>
+		<div class="card text-left shadow p-3 mb-5 bg-white rounded" style="width: 18rem; float:center;">
+                 {% if code ==  200 %}
+  			<img class="card-img-top" src="{{ "http://openweathermap.org/img/wn/"
+                + weather["weather"][0]["icon"]
+                + "@2x.png"}}" alt="#" style="background-color: #007bff" >
+  			<div class="card-body">
+    			<div class="card-text" style="font-size: 14pt;">
+    				<div id = "display-weather">
+                City : {{weather["name"]}}</p>
+                Country : {{country}}</p>
+                weather : {{weather["weather"][0]["main"]}}</p>
+                description : {{weather["weather"][0]["description"]}}</p>
+                temperature :{{(weather["main"]["temp"] - 273 )|round|int }}°C
+            </div>
+            {% elif code == 404 %}
+            <div class="card-text" style="font-size: 14pt;">{{weather["message"]}}</div>
+            {% else %}
+            <div class="card-text" style="font-size: 14pt;"> {{weather}} </div>
+            {% endif %}
+    			</div>  
+  			</div>
+		</div>
+	</div>
+	</center>
+	<br>
+	<br>
+	<br>
+	<br>
+  {% if code != 200 %}
+  <br>
+  <br>
+  <br>
+  <br>
+  {% endif %}
+{% endblock %}

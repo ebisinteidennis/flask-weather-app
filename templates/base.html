@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="title" content="PyWeather">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="weather, PyWeather,flask,python,weabapp,AlphaBeta">
+    <meta name="language" content="English">
+    <meta name="author" content="AlphaBeta">
+    <meta name="description" content="simple webapp made with python flask">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %} {% endblock %}</title>
+    <link id="avast_os_ext_custom_font" href="chrome-extension://mbckjcfnjmoiinpgddefodcighgikkgn/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark" style="font-family: 'Roboto Mono', monospace;">
+      <a class="navbar-brand" href="https://github.com/AlphaBeta1906" target="_blank" style="font-size: 20pt">_>AlphaBeta</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="color: black">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav" style="font-size: 15pt">
+          <li class="nav-item">
+            <a class="nav-link" href="about" style="color: white">About</a>
+          </li> 
+        </ul>
+      </div>  
+    </nav>
+  {% block content %}
+
+  {% endblock %}
+  <div class="footer-copyright page-footer blue text-center text-md-left mt-0 bg-primary">
+       <div class="container-fluid" style="color: white; font-family: 'Roboto Mono', monospace;text-align:center">
+              Api by <a href="https://openweathermap.org/api" style="color: white;"> open weather </a>
+        </div>
+</body>
+</html>
